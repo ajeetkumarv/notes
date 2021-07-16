@@ -1,0 +1,43 @@
+Mosh
+docker build -t firstapp .
+
+
+I was getting below error
+Got permission denied while trying to connect to the Docker daemon socket
+
+sudo usermod -a -G docker ajeet
+
+sudo docker image ls or sudo docker images
+    to list all images 
+
+sudo docker run firstapp
+sudo docker pull <username>/imagename
+
+docker ps
+docker ps -a // for stopped containers also
+
+docker run -it ubuntu // -it is interactive
+
+#=============== LEARN Linux
+
+echo $0 current process location
+
+history -c to clean all history
+!2 to run second command in the history
+
+apt is package manager for ubuntu stands for AdvancedPackageTool
+
+apt-get is low level and for backend, remains backward compatible
+
+apt update means update the repository of package
+apt install nano means install the nano
+apt remove nano ro remove it.
+
+etc => editable text configuration
+var => variable, keep files that are updated freqyenty like logs
+proc => represents files running processes
+
+more can not scroll up
+less is a newer command that more
+
+
