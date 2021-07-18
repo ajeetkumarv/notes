@@ -1,0 +1,106 @@
+Mercurial is one alternative of Git
+commands are like hg, doesn't have staging area
+
+
+Git Lens is most popular VS Code gui
+Source Tree is best free for win and mac
+
+git --version
+
+3 Levels
+System, for all users
+Global all repos of curr user
+Local, the current repositoty
+
+=================== CONFIGURATIONS ========================
+
+git config --global user.name "ajet"
+git config --global user.email "emial id"
+
+git config --global code.editor "code --wait"
+git config --global -e
+
+#for mac/linux
+git config --global core.autocrlf input
+#for win
+git config --global core.autocrlf true
+
+
+
+------------------- BRANCHING -----------
+
+git switch bugfix
+    switch to bugfix
+
+git branch -m bugfix bugfix/signup-form
+    rename is happening here
+
+git branch -d bugfix
+git branch -D bugfix
+    force delete
+
+git log master..bugfix
+    show all commits that are not in master
+
+git diff bugfix
+    diff between curr branch and bugfix
+
+git diff --name-status bugfix
+    lists the files that will be merged
+
+--------------- MERGING ---------------
+
+There are two types of MERGING
+    Fast forward and 3-way merging
+
+git log --oneline --all --graph
+
+git merge --no-ff bugfix
+    This will not fast forward
+    will create new merge commit
+
+git config --global ff no
+
+git merge feature/something
+
+git branch --merged
+    show merged branches
+    other option is --no-merged
+
+git merge --abort
+    we are back to clean state before merge started
+
+3 resetting options
+    soft (only repo will be restored)
+    mixed (default) (stage and repo)
+    hard (wd/stage/repo will be identical)
+
+git reset --hard HEAD~1
+
+[won't work incase of merged commit] git revert HEAD
+
+git reset -m 1 HEAD
+    revert changes and back to 1st parent
+
+git merge --squash feature
+    and then make a commit 
+    and delete the branch
+        else it will reflect in --no-merged
+
+git rebase master
+    pull master changes into curr branch and assume it as base
+Rebasing rewrites history
+so if you have shared your branch and if
+someone puts more commit on your branch, it will 
+be a mess for them if you rebase bcz it creates new commits in master.
+
+git rebase --skip
+git rebase --continue
+git rebase --abort
+
+git cherry-pick 5670ecc
+
+git restore --source=feature/something --toc.txt
+    pick a file from some other branch
+
+
