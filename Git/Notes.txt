@@ -193,4 +193,67 @@ git tag -a v1.1 -m "tagging msg"
 
 git checkout v1.0
 
+----------- REMOTE HANDLING -------------
 
+git remote
+git remote -v
+    v for verbose
+
+git fetch or git fetch origin
+    to update our origin/master
+    this will update our origin/master
+    we will have to additional merge master branch to reflect changs in local branch wd
+    git merge origin/master
+
+git branch -vv
+
+git pull = git fetch + merge
+
+git pull is by default 3 way merge
+git pull --rebase
+
+git push origin master or git push
+    if you are on master branch
+
+git push -f
+    this is a terrible thing to do
+    this may override other persons commit
+
+
+Tag by default don't go to remote repo
+git push origin v1.0
+
+git push origin --delete v1.0
+git tag -d v1.0
+    to delete it from local also
+
+git switch -C bugfix
+    create and switch to this local newly created branch
+
+git branch -r
+    all the remote linked branch
+
+git push -u origin feature
+    to link to origin remote
+    -u means set upstream
+
+git push -d origin feature
+    deletes only remote branch, local still remains
+
+origin/<beanch> is called remote tracking branch
+
+so for github
+    if you create new branch on web
+    do git fetch to get the remote tracking branch on local machine
+    then run below command to create a local branch and link with remote
+    git switch -C feature origin/feature
+
+git remote prune origin
+    delets branches that are not in remote
+
+Adding new remote name
+git remote add upstream <url.git>
+git remote rename upstream base
+    just in case to rename
+
+git remote rm upstream
