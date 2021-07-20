@@ -257,3 +257,56 @@ git remote rename upstream base
     just in case to rename
 
 git remote rm upstream
+
+---------------- REWIRING HISTORY ------------- 
+never alter public commites
+you many need to change because of below reasons
+    very large commit
+    very tiny commit
+    missed something in commit
+
+also
+    there may be unrelated commites
+    tiny change like typo or simple forgottn small letter change
+    confusing comments
+
+******* undoing commit *****
+
+git revert HEAD
+    if you have pushed your code
+    this will revert the changes by that code
+    will create a new commit
+
+Assuming we have pushed our changes
+
+git revert HEAD~3..HEAD
+or
+git revert HEAD~3..
+    HEAD~3 is excluding here, so HEAD, HEAD~1 and HEAD~2 will be reverted
+    but will create 3 revert commits here
+git revert HEAD~2
+    this only removes HEAD~2 not after or before commits
+
+How to revert multiple commites with single revert commit
+
+git revert --no-commit HEAD~3
+    revert but don't create commit
+
+git revert --abort
+    if want to abort
+git revert --continue
+now push this commit.
+
+--------- RECOVER LOST COMMIT -----------
+
+git reflog
+    to see history
+
+git reset --hard HEAD!{1}
+    to reset head back to life
+
+---------- AMEND -----------------
+
+git commit --amend -m "New commit message"
+
+
