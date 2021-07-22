@@ -309,4 +309,29 @@ git reset --hard HEAD!{1}
 
 git commit --amend -m "New commit message"
 
+Ammending earlier commit
+git rebase -i 4f78eE5
+    -i is interactive
+
+Reword/Reorder/Squash commit message
+git rebase -i 6fb2ba7^
+    use reword for each commit you want to reword
+    but this will recreate commits all after the oldest commit reworded
+
+we can use fixup in place of squash
+
+--------------- ^ Caret ---------
+                     master  
+  ... <- B <- C <- D
+             /
+... <- E <- F
+              feature
+
+When feature was merged into master, C was created with two ancestors. Git assigns these ancestors numbers. The mainline ancestor B is assigned 1 and the feature ancestor F is assigned 2.
+
+Thus C^1 refers to B and C^2 refers to F. C^ is an alias for C^1.
+
+You would only ever use <rev>^3. if you had performed a merge of three branches.
+
+HEAD^ refers to the parent of the current HEAD commmit. (also, HEAD^^ refers to the grandparent).
 
