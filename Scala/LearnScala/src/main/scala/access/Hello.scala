@@ -13,10 +13,18 @@ class Hello {
 
   //error: value sam is not a member of Hello
   private val msg3 = "Hello"
+
+  lazy val lazyData = {
+    println("I will not be initialized until first used")
+    7
+  }
 }
 
 object CallHello extends App {
   val h = new Hello
 
   println(h.msg)
+
+  def sample = "Sample"
+
 }
